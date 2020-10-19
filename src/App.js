@@ -8,21 +8,39 @@ import PetShow from './pages/PetShow';
 import UserNew from './pages/UserNew';
 import UserEdit from './pages/UserEdit';
 import NotFound from './pages/NotFound';
+import mockPets from './mockPets.js';
+
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route,
+  Link
+} from "react-router-dom";
 
 export default class App extends Component {
+  constructor(props) {
+    super(props)
+    this.state = {
+      pets: mockPets
+    }
+  }
+
   render() {
     return (
-      <React.Fragment>
+      <Router>
         <Header />
-        <Home />
-        <PetIndex />
-        <PetShow />
-        <UserNew />
-        <UserEdit />
-        <NotFound />
+
+        <Switch>
+          <Route exact path="/" component={ Home } />
+          <Route path="/petindex" component={ PetIndex } />
+          <Route path="/petshow/:id" component={ PetShow } />
+          <Route path="/usernew" component={ UserNew } />
+          <Route path="/useredit/:id" component={ UserEdit } />
+          <Route component={ NotFound }/>
+        </Switch>
+
         <Footer />
-      </React.Fragment>
+      </Router>
     )
   }
 }
-
