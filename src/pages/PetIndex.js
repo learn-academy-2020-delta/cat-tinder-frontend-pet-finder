@@ -9,6 +9,7 @@ import { NavLink } from 'react-router-dom'
 export default class PetIndex extends Component {
     render() {
         return (
+            <div id="pet-index-body">
             <React.Fragment>
                 <h3>Pets</h3>
                 <br />
@@ -22,10 +23,12 @@ export default class PetIndex extends Component {
                                     </NavLink>
                                 </CardTitle>
                             </Card>
+
                         )
                     })}
                 </Col>
             </React.Fragment>
+            </div>
         )
     }
 }

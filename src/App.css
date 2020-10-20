@@ -2,8 +2,26 @@
     background-color: #384E56;
     color: #FFFFFF;
     height: 80vh;
+    display: flex;
+    justify-content: center;
+    align-items: center; 
+    width: 100%;
 }
+.jumbotron.jumbotron-fluid{
+    background-color: #DE6F3F;
+    width: 65vw;
+}
+.container-fluid{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+#petlogo{
+    width: 300px;
+    background-color: rgba(255, 255, 255, .7) ;
 
+}
 #header {
     background-color: #5C96AD;
     color: #FFFFFF;
