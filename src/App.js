@@ -7,6 +7,7 @@ import PetIndex from './pages/PetIndex';
 import PetShow from './pages/PetShow';
 import UserNew from './pages/UserNew';
 import UserEdit from './pages/UserEdit';
+import UserShow from './pages/UserShow';
 import NotFound from './pages/NotFound';
 import mockPets from './mockPets.js';
 
@@ -36,6 +37,7 @@ export default class App extends Component {
           <Route path="/petshow/:id" component={ PetShow } />
           <Route path="/usernew" component={ UserNew } />
           <Route path="/useredit/:id" component={ UserEdit } />
+          <Route path="/usershow/" component={ UserShow } />
           <Route component={ NotFound }/>
         </Switch>
 
