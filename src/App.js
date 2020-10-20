@@ -1,26 +1,74 @@
-import React from 'react';
-import logo from './logo.svg';
+import React, { Component } from 'react';
+import Footer from "./components/Footer"
+import Header from "./components/Header"
 import './App.css';
+import Home from './pages/Home';
+import PetIndex from './pages/PetIndex';
+import PetShow from './pages/PetShow';
+import UserNew from './pages/UserNew';
+import UserEdit from './pages/UserEdit';
+import UserShow from './pages/UserShow';
+import NotFound from './pages/NotFound';
+import mockPets from './mockPets.js';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route,
+  Link
+} from "react-router-dom";
+
+export default class App extends Component {
+  constructor(props) {
+    super(props)
+    this.state = {
+      pets: mockPets
+    }
+  }
+
+  render() {
+    return (
+      <Router>
+        <Header />
+
+        <Switch>
+          <Route
+            exact path="/"
+            component={Home}
+          />
+          <Route
+            path="/petindex"
+            render={(props) => <PetIndex pets={this.state.pets} />}
+          />
+          <Route
+            path={"/petshow/:id"}
+            render={(props) => {
+              let id = props.match.params.id
+              let pet = this.state.pets.find(pet => pet.id === parseInt(id))
+              return (
+                <PetShow pet={pet} />
+              )
+            }}
+          />
+          <Route
+            path="/usernew"
+            component={UserNew}
+          />
+          <Route
+            path="/useredit/:id"
+            component={UserEdit}
+          />
+          <Route
+            path="/usershow/"
+            component={UserShow}
+          />
+          <Route
+            component={NotFound}
+          />
+        </Switch>
+
+        <Footer />
+      </Router>
+    )
+  }
 }
-
-export default App;
