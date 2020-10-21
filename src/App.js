@@ -10,6 +10,7 @@ import UserEdit from './pages/UserEdit';
 import UserShow from './pages/UserShow';
 import NotFound from './pages/NotFound';
 import mockPets from './mockPets.js';
+import mockUsers from './mockUsers.js'
 
 import {
   BrowserRouter as Router,
@@ -22,8 +23,18 @@ export default class App extends Component {
   constructor(props) {
     super(props)
     this.state = {
-      pets: mockPets
+      pets: mockPets,
+      users: mockUsers
     }
+  }
+
+  createNewUser = (newuser) => {
+    console.log(newuser)
+  }
+
+  editUser = (edituser, id) => {
+    console.log("edituser:", edituser)
+    console.log("id:", id)
   }
 
   render() {
@@ -52,11 +63,20 @@ export default class App extends Component {
           />
           <Route
             path="/usernew"
-            component={UserNew}
+            render={(props) => <UserNew createNewUser={this.createNewUser} />}
           />
           <Route
-            path="/useredit/:id"
-            component={UserEdit}
+            exact path="/useredit/:id"
+            render={(props) => {
+              let id = props.match.params.id
+              let user = this.state.users.find(user => user.id === parseInt(id))
+              return (
+                <UserEdit
+                  editUser={this.editUser}
+                  user={user}
+                />
+              )
+            }}
           />
           <Route
             path="/usershow/"
