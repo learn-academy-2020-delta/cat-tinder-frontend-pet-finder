@@ -11,7 +11,6 @@ export default class PetShow extends Component {
     render() {
         return (
             <div id="pet-show-body">
-            <React.Fragment>
                 <h3>Single Pet</h3>
                 <br />
                 <Col sm="6">
@@ -25,7 +24,6 @@ export default class PetShow extends Component {
                                 </NavLink>
                     </Card>
                 </Col>
-            </React.Fragment>
             </div>
         )
     }

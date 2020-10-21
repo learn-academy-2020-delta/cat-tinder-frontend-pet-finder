@@ -10,7 +10,6 @@ export default class PetIndex extends Component {
     render() {
         return (
             <div id="pet-index-body">
-            <React.Fragment>
                 <h3>Pets</h3>
                 <br />
                 <Col sm="6">
@@ -27,7 +26,6 @@ export default class PetIndex extends Component {
                         )
                     })}
                 </Col>
-            </React.Fragment>
             </div>
         )
     }

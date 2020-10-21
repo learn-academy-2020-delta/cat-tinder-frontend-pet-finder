@@ -29,8 +29,7 @@ export default class UserEdit extends Component {
     }
     render() {
         return (
-            <div id="user-edit-body"></div>
-            <React.Fragment>
+            <div id="user-edit-body">
                 <h3>Edit Account</h3>
                 <Form>
                     <FormGroup>
@@ -74,10 +73,9 @@ export default class UserEdit extends Component {
                         onClick={this.handleSubmit}
                     >
                         Update Account
-          </Button>
+                    </Button>
                 </Form>
                 { this.state.success && <Redirect to="/petindex" />}
-            </React.Fragment>
             </div>
         )
     }
