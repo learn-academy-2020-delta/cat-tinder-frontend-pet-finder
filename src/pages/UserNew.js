@@ -30,6 +30,7 @@ export default class UserNew extends Component {
 
     render() {
         return (
+            <div id="user-new-body">
             <React.Fragment>
                 <h3>New User</h3>
                 <Form>
@@ -78,6 +79,8 @@ export default class UserNew extends Component {
                 </Form>
                 { this.state.success && <Redirect to="/petindex" />}
             </React.Fragment>
+            </div>
+
         )
     }
 }

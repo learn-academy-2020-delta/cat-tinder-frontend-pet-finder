@@ -10,6 +10,7 @@ import { NavLink } from 'react-router-dom'
 export default class PetShow extends Component {
     render() {
         return (
+            <div id="pet-show-body">
             <React.Fragment>
                 <h3>Single Pet</h3>
                 <br />
@@ -25,6 +26,7 @@ export default class PetShow extends Component {
                     </Card>
                 </Col>
             </React.Fragment>
+            </div>
         )
     }
 }
