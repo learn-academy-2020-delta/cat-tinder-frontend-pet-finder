@@ -7,6 +7,7 @@ import PetIndex from './pages/PetIndex';
 import PetShow from './pages/PetShow';
 import UserNew from './pages/UserNew';
 import UserEdit from './pages/UserEdit';
+import UserShow from './pages/UserShow';
 import NotFound from './pages/NotFound';
 import mockPets from './mockPets.js';
 
@@ -31,12 +32,39 @@ export default class App extends Component {
         <Header />
 
         <Switch>
-          <Route exact path="/" component={ Home } />
-          <Route path="/petindex" component={ PetIndex } />
-          <Route path="/petshow/:id" component={ PetShow } />
-          <Route path="/usernew" component={ UserNew } />
-          <Route path="/useredit/:id" component={ UserEdit } />
-          <Route component={ NotFound }/>
+          <Route
+            exact path="/"
+            component={Home}
+          />
+          <Route
+            path="/petindex"
+            render={(props) => <PetIndex pets={this.state.pets} />}
+          />
+          <Route
+            path={"/petshow/:id"}
+            render={(props) => {
+              let id = props.match.params.id
+              let pet = this.state.pets.find(pet => pet.id === parseInt(id))
+              return (
+                <PetShow pet={pet} />
+              )
+            }}
+          />
+          <Route
+            path="/usernew"
+            component={UserNew}
+          />
+          <Route
+            path="/useredit/:id"
+            component={UserEdit}
+          />
+          <Route
+            path="/usershow/"
+            component={UserShow}
+          />
+          <Route
+            component={NotFound}
+          />
         </Switch>
 
         <Footer />
