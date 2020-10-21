@@ -79,8 +79,14 @@ export default class App extends Component {
             }}
           />
           <Route
-            path="/usershow/"
-            component={UserShow}
+            path="/usershow/:id"
+            render={(props) => {
+              let id = props.match.params.id
+              let user = this.state.users.find(user => user.id === parseInt(id))
+              return (
+                <UserShow user={user}/>
+              )
+            }}
           />
           <Route
             component={NotFound}

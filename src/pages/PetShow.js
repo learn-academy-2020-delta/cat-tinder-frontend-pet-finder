@@ -21,7 +21,7 @@ export default class PetShow extends Component {
                                 </CardText>
                         <NavLink to={'/petindex'}>
                             Back to pets
-                                </NavLink>
+                        </NavLink>
                     </Card>
                 </Col>
             </div>
