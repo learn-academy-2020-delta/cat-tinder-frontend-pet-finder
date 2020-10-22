@@ -29,9 +29,9 @@ export default class UserNew extends Component {
     }
 
     render() {
+      const {form, success} = this.state
         return (
             <div id="user-new-body">
-            <React.Fragment>
                 <h3>New User</h3>
                 <Form>
                     <FormGroup>
@@ -40,7 +40,7 @@ export default class UserNew extends Component {
                             type="text"
                             name="name"
                             onChange={this.handleChange}
-                            value={this.state.form.name}
+                            value={form.name}
                         />
                     </FormGroup>
                     <FormGroup>
@@ -49,7 +49,7 @@ export default class UserNew extends Component {
                             type="number"
                             name="age"
                             onChange={this.handleChange}
-                            value={this.state.form.age}
+                            value={form.age}
                         />
                     </FormGroup>
                     <FormGroup>
@@ -58,7 +58,7 @@ export default class UserNew extends Component {
                             type="text"
                             name="address"
                             onChange={this.handleChange}
-                            value={this.state.form.address}
+                            value={form.address}
                         />
                     </FormGroup>
                     <FormGroup>
@@ -67,7 +67,7 @@ export default class UserNew extends Component {
                             type="email"
                             name="email"
                             onChange={this.handleChange}
-                            value={this.state.form.email}
+                            value={form.email}
                         />
                     </FormGroup>
                     <Button
@@ -75,10 +75,9 @@ export default class UserNew extends Component {
                         onClick={this.handleSubmit}
                     >
                         Create New User Account
-          </Button>
+                </Button>
                 </Form>
-                { this.state.success && <Redirect to="/petindex" />}
-            </React.Fragment>
+                { success && <Redirect to="/petindex" />}
             </div>
 
         )

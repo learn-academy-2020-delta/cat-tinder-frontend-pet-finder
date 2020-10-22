@@ -5,7 +5,6 @@ export default class NotFound extends Component {
         return (
             <div id="not-found-body">
                 <h3>ERROR</h3>
-            </React.Fragment>
             </div>
         )
     }

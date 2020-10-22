@@ -28,9 +28,9 @@ export default class UserEdit extends Component {
         this.setState({ success: true })
     }
     render() {
+      const {form, success} = this.state
         return (
-            <div id="user-edit-body"></div>
-            <React.Fragment>
+            <div id="user-edit-body">
                 <h3>Edit Account</h3>
                 <Form>
                     <FormGroup>
@@ -39,7 +39,7 @@ export default class UserEdit extends Component {
                             type="text"
                             name="name"
                             onChange={this.handleChange}
-                            value={this.state.form.name}
+                            value={form.name}
                         />
                     </FormGroup>
                     <FormGroup>
@@ -48,7 +48,7 @@ export default class UserEdit extends Component {
                             type="number"
                             name="age"
                             onChange={this.handleChange}
-                            value={this.state.form.age}
+                            value={form.age}
                         />
                     </FormGroup>
                     <FormGroup>
@@ -57,7 +57,7 @@ export default class UserEdit extends Component {
                             type="text"
                             name="address"
                             onChange={this.handleChange}
-                            value={this.state.form.address}
+                            value={form.address}
                         />
                     </FormGroup>
                     <FormGroup>
@@ -66,7 +66,7 @@ export default class UserEdit extends Component {
                             type="email"
                             name="email"
                             onChange={this.handleChange}
-                            value={this.state.form.email}
+                            value={form.email}
                         />
                     </FormGroup>
                     <Button
@@ -74,10 +74,9 @@ export default class UserEdit extends Component {
                         onClick={this.handleSubmit}
                     >
                         Update Account
-          </Button>
+                    </Button>
                 </Form>
-                { this.state.success && <Redirect to="/petindex" />}
-            </React.Fragment>
+                { success && <Redirect to="/userindex" />}
             </div>
         )
     }
