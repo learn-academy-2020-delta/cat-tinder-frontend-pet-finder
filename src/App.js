@@ -5,6 +5,7 @@ import './App.css';
 import Home from './pages/Home';
 import PetIndex from './pages/PetIndex';
 import PetShow from './pages/PetShow';
+import UserIndex from './pages/UserIndex';
 import UserNew from './pages/UserNew';
 import UserEdit from './pages/UserEdit';
 import UserShow from './pages/UserShow';
@@ -64,6 +65,10 @@ export default class App extends Component {
           <Route
             path="/usernew"
             render={(props) => <UserNew createNewUser={this.createNewUser} />}
+          />
+          <Route
+            path="/userindex"
+            render={(props) => <UserIndex users={this.state.users} />}
           />
           <Route
             exact path="/useredit/:id"

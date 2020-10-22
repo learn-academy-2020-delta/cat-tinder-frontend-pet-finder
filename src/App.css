@@ -8,16 +8,52 @@
     width: 100%;
 }
 
-#pet-index-body, #user-new-body{
+#pet-index-body, #user-new-body, #user-index-body{
     background-color: #384E56;
     color: #FFFFFF;
     height: 90vh;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    padding-top: 10px;
 }
 
-#pet-show-body, {
+#pet-show-body, #user-show-body{
     background-color: #384E56;
     color: black;
     height: 90vh;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    padding-top: 10px;
+}
+.row {
+    max-width: 400px;
+}
+
+.pawprint {
+    width: 45px;
+    margin-left: 23px;
+}
+
+.petcards{
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.usercards, .petcards{
+   min-width: 125px;
+   text-align: center;
+   font-size: 25px;
+}
+
+.card {
+    padding-top: 8px;
+}
+
+.title {
+    color:white;
+    font-size: 50px;
 }
 
 .jumbotron.jumbotron-fluid{
@@ -42,6 +78,8 @@
 #footer {
     background-color: #DE6F3F;
     padding-bottom: 5px;
+    display: flex;
+    justify-content: center;
 }
 .nav-link {
     color: #FFFFFF;

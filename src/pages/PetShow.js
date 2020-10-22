@@ -11,11 +11,10 @@ export default class PetShow extends Component {
     render() {
         return (
             <div id="pet-show-body">
-                <h3>Single Pet</h3>
+                <h3 className="title">{this.props.pet.name}</h3>
                 <br />
                 <Col sm="6">
                     <Card>
-                        <CardTitle>{this.props.pet.name}</CardTitle>
                         <CardText>
                             Hello, I am {this.props.pet.age} years old. I enjoy {this.props.pet.enjoys}.
                                 </CardText>

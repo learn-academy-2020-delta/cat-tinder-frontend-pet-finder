@@ -11,7 +11,7 @@ export default class UserShow extends Component {
     render() {
         return (
             <div id="user-show-body">
-                <h3>User Profile</h3>
+                <h3 className="title">User Profile</h3>
                 <br />
                 <Col sm="6">
                     <Card>
@@ -21,6 +21,9 @@ export default class UserShow extends Component {
                             Address: {this.props.user.address}<br/>
                             Email: {this.props.user.email}
                         </CardText>
+                        <NavLink to={'/userindex'}>
+                            Back to profiles
+                        </NavLink>
                         <NavLink to={'/petindex'}>
                             Back to pets
                         </NavLink>
