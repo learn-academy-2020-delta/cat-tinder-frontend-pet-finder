@@ -3,9 +3,9 @@ import React, { Component } from 'react';
 export default class NotFound extends Component {
     render() {
         return (
-            <React.Fragment>
+            <div id="not-found-body">
                 <h3>ERROR</h3>
-            </React.Fragment>
+            </div>
         )
     }
 }

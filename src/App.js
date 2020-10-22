@@ -5,11 +5,13 @@ import './App.css';
 import Home from './pages/Home';
 import PetIndex from './pages/PetIndex';
 import PetShow from './pages/PetShow';
+import UserIndex from './pages/UserIndex';
 import UserNew from './pages/UserNew';
 import UserEdit from './pages/UserEdit';
 import UserShow from './pages/UserShow';
 import NotFound from './pages/NotFound';
 import mockPets from './mockPets.js';
+import mockUsers from './mockUsers.js'
 
 import {
   BrowserRouter as Router,
@@ -22,8 +24,18 @@ export default class App extends Component {
   constructor(props) {
     super(props)
     this.state = {
-      pets: mockPets
+      pets: mockPets,
+      users: mockUsers
     }
+  }
+
+  createNewUser = (newuser) => {
+    console.log(newuser)
+  }
+
+  editUser = (edituser, id) => {
+    console.log("edituser:", edituser)
+    console.log("id:", id)
   }
 
   render() {
@@ -52,15 +64,34 @@ export default class App extends Component {
           />
           <Route
             path="/usernew"
-            component={UserNew}
+            render={(props) => <UserNew createNewUser={this.createNewUser} />}
           />
           <Route
-            path="/useredit/:id"
-            component={UserEdit}
+            path="/userindex"
+            render={(props) => <UserIndex users={this.state.users} />}
           />
           <Route
-            path="/usershow/"
-            component={UserShow}
+            exact path="/useredit/:id"
+            render={(props) => {
+              let id = props.match.params.id
+              let user = this.state.users.find(user => user.id === parseInt(id))
+              return (
+                <UserEdit
+                  editUser={this.editUser}
+                  user={user}
+                />
+              )
+            }}
+          />
+          <Route
+            path="/usershow/:id"
+            render={(props) => {
+              let id = props.match.params.id
+              let user = this.state.users.find(user => user.id === parseInt(id))
+              return (
+                <UserShow user={user}/>
+              )
+            }}
           />
           <Route
             component={NotFound}

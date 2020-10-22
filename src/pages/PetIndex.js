@@ -2,30 +2,36 @@ import React, { Component } from 'react';
 import {
     Card,
     CardTitle,
-    Col
+    Col,
+    Row
 } from 'reactstrap'
 import { NavLink } from 'react-router-dom'
+import PawPrint from '../assets/Paw_Print.png'
 
 export default class PetIndex extends Component {
     render() {
+      const {pets} = this.props
         return (
-            <React.Fragment>
-                <h3>Pets</h3>
+            <div id="pet-index-body">
+                <h3 className="title">Pets</h3>
                 <br />
-                <Col sm="6">
-                    {this.props.pets.map((pet, index) => {
+                <Row>
+                    {pets.map((pet, index) => {
                         return (
-                            <Card key={index}>
-                                <CardTitle>
-                                    <NavLink to={`/petshow/${pet.id}`}>
-                                        {pet.name}
-                                    </NavLink>
-                                </CardTitle>
-                            </Card>
+                            <Col xs="3" className="petcards">
+                                <Card key={index}>
+                                    <img className="pawprint" src={PawPrint}/>
+                                    <CardTitle>
+                                        <NavLink to={`/petshow/${pet.id}`}>
+                                            {pet.name}
+                                        </NavLink>
+                                    </CardTitle>
+                                </Card>
+                            </Col>
                         )
                     })}
-                </Col>
-            </React.Fragment>
+                </Row>
+            </div>
         )
     }
 }

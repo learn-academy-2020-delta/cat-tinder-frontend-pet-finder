@@ -31,7 +31,7 @@ const Header = (props) => {
           <DropdownMenu>
             <DropdownItem> <NavLink id="dropdownpetindex" href="/petindex" active>All Pets</NavLink> </DropdownItem>
             <DropdownItem divider />
-            <DropdownItem> <NavLink id="dropdownpetshow" href="/petshow" active>Pet Search</NavLink> </DropdownItem>
+            // <DropdownItem> <NavLink id="dropdownpetshow" href="/petshow" active>Pet Search</NavLink> </DropdownItem>
           </DropdownMenu>
         </UncontrolledDropdown>
 
@@ -43,7 +43,7 @@ const Header = (props) => {
             {/* <DropdownItem> <NavLink href="/" active>Sign In</NavLink> </DropdownItem> */}
             <DropdownItem> <NavLink id="dropdownusernew" href="/usernew" active>Sign Up</NavLink> </DropdownItem>
             <DropdownItem divider />
-            <DropdownItem> <NavLink id="dropdownusershow" href="/usershow" active>User Profile</NavLink> </DropdownItem>
+            <DropdownItem> <NavLink id="dropdownusershow" href="/userindex" active>User Profiles</NavLink> </DropdownItem>
           </DropdownMenu>
         </Dropdown>
       </Nav>

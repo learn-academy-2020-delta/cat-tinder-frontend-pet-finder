@@ -1,15 +1,94 @@
 #home-body {
     background-color: #384E56;
     color: #FFFFFF;
-    height: 80vh;
+    height: 90vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
 }
 
+#pet-index-body, #user-new-body, #user-index-body, #user-edit-body{
+    background-color: #384E56;
+    color: #FFFFFF;
+    height: 90vh;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    padding-top: 10px;
+}
+
+#pet-show-body, #user-show-body{
+    background-color: #384E56;
+    color: black;
+    height: 90vh;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    padding-top: 10px;
+}
+.row {
+    max-width: 400px;
+}
+
+.pawprint {
+    width: 45px;
+    margin-left: 23px;
+}
+
+.petcards{
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.usercards, .petcards{
+   min-width: 125px;
+   text-align: center;
+   font-size: 25px;
+}
+
+.card {
+    padding-top: 8px;
+    padding-bottom: 8px;
+    padding-left: 8px;
+}
+hr{
+  background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0)) !important;
+  /* width: 80%; */
+  text-align: center;
+  border: 0 !important;
+  height: 1px !important;
+}
+
+.title {
+    color:white;
+    font-size: 50px;
+}
+
+.jumbotron.jumbotron-fluid{
+    background-color: #DE6F3F;
+    width: 65vw;
+}
+.container-fluid{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+#petlogo{
+    width: 300px;
+    background-color: rgba(255, 255, 255, .7) ;
+
+}
 #header {
     background-color: #5C96AD;
     color: #FFFFFF;
 }
 #footer {
     background-color: #DE6F3F;
+    padding-bottom: 5px;
+    display: flex;
+    justify-content: center;
 }
 .nav-link {
     color: #FFFFFF;
@@ -23,6 +102,3 @@
     border-color: rgba(255, 255, 255, 0.5);
     border-width: 2.5px;
 }
-
-
-
