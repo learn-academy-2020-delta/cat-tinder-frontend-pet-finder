@@ -9,14 +9,15 @@ import { NavLink } from 'react-router-dom'
 
 export default class PetShow extends Component {
     render() {
+      const {pet} = this.props
         return (
             <div id="pet-show-body">
-                <h3 className="title">{this.props.pet.name}</h3>
+                <h3 className="title">{pet.name}</h3>
                 <br />
                 <Col sm="6">
                     <Card>
                         <CardText>
-                            Hello, I am {this.props.pet.age} years old. I enjoy {this.props.pet.enjoys}.
+                            Hello, I am {pet.age} years old. I enjoy {pet.enjoys}.
                                 </CardText>
                         <NavLink to={'/petindex'}>
                             Back to pets

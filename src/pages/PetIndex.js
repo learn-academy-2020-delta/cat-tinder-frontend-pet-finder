@@ -10,12 +10,13 @@ import PawPrint from '../assets/Paw_Print.png'
 
 export default class PetIndex extends Component {
     render() {
+      const {pets} = this.props
         return (
             <div id="pet-index-body">
                 <h3 className="title">Pets</h3>
                 <br />
                 <Row>
-                    {this.props.pets.map((pet, index) => {
+                    {pets.map((pet, index) => {
                         return (
                             <Col xs="3" className="petcards">
                                 <Card key={index}>
