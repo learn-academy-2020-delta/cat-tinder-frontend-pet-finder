@@ -7,5 +7,5 @@ Enzyme.configure({ adapter: new Adapter() });
 
 it('renders the Footer component', () => {
     const footer = shallow(<Footer />)
-    expect(footer.find('h3').text()).toEqual('Footer')
+    expect(footer.find('h4').text()).toEqual('Made by Drew, Matt, and Nate')
 })

@@ -6,6 +6,6 @@ import PetIndex from '../PetIndex'
 Enzyme.configure({ adapter: new Adapter() });
 
 it('renders the PetIndex component', () => {
-    const petIndex = shallow(<PetIndex />)
-    expect(petIndex.find('h3').text()).toEqual('Pets')
+    const petIndex = shallow(<PetIndex pets={this.state.pets}/>)
+    expect(petIndex.find('.title').text()).toEqual('Pets')
 })
