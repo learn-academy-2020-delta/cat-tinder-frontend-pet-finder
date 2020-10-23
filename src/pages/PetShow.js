@@ -6,6 +6,8 @@ import {
     Col
 } from 'reactstrap'
 import { NavLink } from 'react-router-dom'
+import PropTypes from 'prop-types'
+
 
 export default class PetShow extends Component {
     render() {
@@ -27,4 +29,12 @@ export default class PetShow extends Component {
             </div>
         )
     }
+}
+
+PetShow.propTypes = {
+    pets: PropTypes.shape({
+      name: PropTypes.string,
+      age: PropTypes.number,
+      enjoys: PropTypes.string
+    }).isRequired
 }

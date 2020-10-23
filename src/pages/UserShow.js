@@ -6,6 +6,8 @@ import {
     Col
 } from 'reactstrap'
 import { NavLink } from 'react-router-dom'
+import PropTypes from 'prop-types'
+
 
 export default class UserShow extends Component {
     render() {
@@ -38,4 +40,13 @@ export default class UserShow extends Component {
 
         )
     }
+}
+
+UserShow.propTypes = {
+    user: PropTypes.shape({
+      name: PropTypes.string,
+      age: PropTypes.number,
+      address: PropTypes.string,
+      email: PropTypes.string  
+    }).isRequired
 }

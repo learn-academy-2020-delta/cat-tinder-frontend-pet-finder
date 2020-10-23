@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { Button, Form, FormGroup, Label, Input } from 'reactstrap';
 import { Redirect } from 'react-router-dom'
+import PropTypes from 'prop-types'
 
 
 export default class UserEdit extends Component {
@@ -8,6 +9,7 @@ export default class UserEdit extends Component {
         super(props)
         this.state = {
             form: {
+                id: "",
                 name: "",
                 age: "",
                 address: "",
@@ -17,6 +19,10 @@ export default class UserEdit extends Component {
         }
     }
 
+    componentDidMount(){
+        this.setState({ form: this.props.user})
+    }
+
     handleChange = (e) => {
         let { form } = this.state
         form[e.target.name] = e.target.value
@@ -24,7 +30,7 @@ export default class UserEdit extends Component {
     }
 
     handleSubmit = () => {
-        this.props.editUser(this.state.form)
+        this.props.updateUser(this.state.form, this.state.form.id)
         this.setState({ success: true })
     }
     render() {
@@ -80,4 +86,14 @@ export default class UserEdit extends Component {
             </div>
         )
     }
+}
+
+UserEdit.propTypes = {
+    user: PropTypes.shape({
+      name: PropTypes.string,
+      age: PropTypes.number,
+      address: PropTypes.string,
+      email: PropTypes.string  
+    }).isRequired,
+    updateUser: PropTypes.func.isRequired
 }
