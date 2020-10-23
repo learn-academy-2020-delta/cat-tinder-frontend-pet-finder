@@ -104,6 +104,21 @@ export default class App extends Component {
     })
   }
 
+  deleteUser = (id) => {
+    return fetch(`http://localhost:3000/users/${id}`, {
+      headers: {
+        "Content-Type": "application/json"
+      },
+      method: "DELETE"
+    })
+    .then(response => {
+      return response.json()
+    })
+    .catch(errors => {
+      console.log("delete errors:", errors)
+    })
+  }
+
   render() {
     return (
       <Router>
@@ -155,7 +170,10 @@ export default class App extends Component {
               let id = props.match.params.id
               let user = this.state.users.find(user => user.id === parseInt(id))
               return (
-                <UserShow user={user}/>
+                <UserShow 
+                user={user} 
+                deleteUser={ this.deleteUser }
+                />
               )
             }}
           />

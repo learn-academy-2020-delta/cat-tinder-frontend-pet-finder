@@ -3,7 +3,8 @@ import {
     Card,
     CardTitle,
     CardText,
-    Col
+    Col, 
+    Button
 } from 'reactstrap'
 import { NavLink } from 'react-router-dom'
 import PropTypes from 'prop-types'
@@ -11,7 +12,7 @@ import PropTypes from 'prop-types'
 
 export default class UserShow extends Component {
     render() {
-      const {user} = this.props
+      const {user, deleteUser} = this.props
         return (
             <div id="user-show-body">
                 <h3 className="title">User Profile</h3>
@@ -27,6 +28,13 @@ export default class UserShow extends Component {
                         <NavLink to={`/useredit/${user.id}`}>
                             Edit profiles
                         </NavLink>
+                        <NavLink
+                            to={"/userindex"}
+                        >
+                            <Button color="secondary" onClick={this.props.deleteUser(user.id)}>
+                            Delete Profile
+                            </Button>
+                        </NavLink>  
                         <hr/>
                         <NavLink to={'/petindex'}>
                             Back to pets
