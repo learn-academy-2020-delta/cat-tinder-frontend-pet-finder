@@ -24,18 +24,84 @@ export default class App extends Component {
   constructor(props) {
     super(props)
     this.state = {
-      pets: mockPets,
-      users: mockUsers
+      pets: [],
+      users: []
     }
   }
 
-  createNewUser = (newuser) => {
-    console.log(newuser)
+  componentDidMount(){
+    this.userIndex()
+    this.petsIndex()
   }
 
-  editUser = (edituser, id) => {
-    console.log("edituser:", edituser)
-    console.log("id:", id)
+  userIndex = () => {
+    fetch("http://localhost:3000/users")
+    .then(response => {
+      return response.json()
+    })
+    .then(usersArray => {
+      this.setState({ users: usersArray})
+    })
+    .catch(errors => {
+      console.log("index errors:", errors);
+    })
+  }
+
+  petsIndex = () => {
+    fetch("http://localhost:3000/pets")
+    .then(response => {
+      return response.json()
+    })
+    .then(petsArray => {
+      this.setState({ pets: petsArray})
+    })
+    .catch(errors => {
+      console.log("index errors:", errors);
+    })
+  }
+
+  createNewUser = (newuser) => {
+    fetch("http://localhost:3000/users", {
+      body: JSON.stringify(newuser),
+      headers: {
+        "Content-Type": "application/json"
+      },
+      method: "POST"
+    })
+    .then(response => {
+      if(response.status === 422){
+        alert("Invalid Submission")
+      }
+      return response.json()
+    })
+    .then(payload => {
+      this.userIndex()
+    })
+    .catch(errors => {
+      console.log("create errors:", errors);
+    })
+  }
+
+  updateUser = (user, id) => {
+    return fetch(`http://localhost:3000/users/${id}`, {
+      body: JSON.stringify(user),
+      headers: {
+        "Content-Type": "application/json"
+      },
+      method: "PATCH"
+    })
+    .then(response => {
+      if(response.status === 422){
+        alert("Invalid Submission")
+      }
+      return response.json()
+    })
+    .then(payload => {
+      this.userIndex()
+    })
+    .catch(errors => {
+      console.log("update errors:", errors);
+    })
   }
 
   render() {
@@ -77,7 +143,7 @@ export default class App extends Component {
               let user = this.state.users.find(user => user.id === parseInt(id))
               return (
                 <UserEdit
-                  editUser={this.editUser}
+                  updateUser={this.updateUser}
                   user={user}
                 />
               )

@@ -7,6 +7,8 @@ import {
 } from 'reactstrap'
 import { NavLink } from 'react-router-dom'
 import PawPrint from '../assets/Paw_Print.png'
+import PropTypes from 'prop-types'
+
 
 export default class PetIndex extends Component {
     render() {
@@ -16,7 +18,7 @@ export default class PetIndex extends Component {
                 <h3 className="title">Pets</h3>
                 <br />
                 <Row>
-                    {pets.map((pet, index) => {
+                    {pets && pets.map((pet, index) => {
                         return (
                             <Col xs="3" className="petcards">
                                 <Card key={index}>
@@ -34,4 +36,12 @@ export default class PetIndex extends Component {
             </div>
         )
     }
+}
+
+PetIndex.propTypes = {
+    pets: PropTypes.shape({
+      name: PropTypes.string,
+      age: PropTypes.number,
+      enjoys: PropTypes.string
+    }).isRequired
 }

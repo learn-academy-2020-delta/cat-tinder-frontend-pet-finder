@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import { Button, Form, FormGroup, Label, Input } from 'reactstrap';
 import { Redirect } from 'react-router-dom'
+import PropTypes from 'prop-types'
+
 
 
 export default class UserNew extends Component {
@@ -77,9 +79,13 @@ export default class UserNew extends Component {
                         Create New User Account
                 </Button>
                 </Form>
-                { success && <Redirect to="/petindex" />}
+                { success && <Redirect to="/userindex" />}
             </div>
 
         )
     }
+}
+
+UserNew.propTypes = {
+   createNewUser: PropTypes.func.isRequired
 }
